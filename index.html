@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breast Cancer Risk Prediction</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🧠 Breast Cancer Risk Prediction</h1>
+  <p class="subtitle">
+    Logistic Regression from scratch • No backend • No libraries
+  </p>
+
+  <form id="predict-form" class="grid">
+    <!-- Example (repeat for all 30) -->
+    <div class="field">
+      <label>Mean Radius</label>
+      <input type="number" step="any" name="mean_radius" required>
+    </div>
+
+    <div class="field">
+      <label>Mean Texture</label>
+      <input type="number" step="any" name="mean_texture" required>
+    </div>
+
+    <!-- ⚠️ ADD ALL REMAINING 28 FIELDS -->
+    <!-- names MUST match FEATURE_NAMES exactly -->
+
+    <button type="submit" class="btn">Predict Risk</button>
+  </form>
+
+  <div id="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
