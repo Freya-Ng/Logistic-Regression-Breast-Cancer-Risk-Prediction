@@ -1,0 +1,182 @@
+"""
+Bilingual translation system (English / Vietnamese).
+"""
+
+LANG = {
+    "app_title":        {"en": "Breast Cancer Risk Prediction",                           "vi": "Du Doan Nguy Co Ung Thu Vu"},
+    "app_subtitle":     {"en": "Logistic regression model trained on the Wisconsin Diagnostic Breast Cancer dataset",
+                         "vi": "Mo hinh hoi quy logistic huan luyen tren bo du lieu Wisconsin Diagnostic Breast Cancer"},
+    "sidebar_title":    {"en": "Tumor Measurements",                                      "vi": "So Do Khoi U"},
+    "sidebar_subtitle": {"en": "Fill in all 30 features from FNA report",                 "vi": "Dien day du 30 chi so tu bao cao FNA"},
+    "btn_predict":      {"en": "Predict Risk",                                            "vi": "Du Doan Nguy Co"},
+    "info_banner": {
+        "en": "Enter <strong>30 tumor cell nucleus measurements</strong> from a fine needle aspirate (FNA) biopsy in the sidebar, then click <strong>Predict Risk</strong>.",
+        "vi": "Nhap <strong>30 chi so do nhan te bao khoi u</strong> tu sinh thiet choc hut kim nho (FNA) o thanh ben, sau do nhan <strong>Du Doan Nguy Co</strong>.",
+    },
+    "waiting_title":    {"en": "Awaiting Input",                                          "vi": "Dang Cho Du Lieu"},
+    "waiting_text":     {"en": "Fill in the measurements in the sidebar and click Predict Risk", "vi": "Dien cac so do o thanh ben va nhan Du Doan Nguy Co"},
+    "sec_mean":         {"en": "Mean Features",       "vi": "Chi So Trung Binh"},
+    "sec_se":           {"en": "Std Error Features",   "vi": "Sai So Chuan"},
+    "sec_worst":        {"en": "Worst Features",       "vi": "Chi So Lon Nhat"},
+    "sec_mean_desc":    {"en": "Average value of each measurement",                       "vi": "Gia tri trung binh cua moi phep do"},
+    "sec_se_desc":      {"en": "Standard error of each measurement",                      "vi": "Sai so chuan cua moi phep do"},
+    "sec_worst_desc":   {"en": "Largest value (mean of 3 largest)",                       "vi": "Gia tri lon nhat (trung binh 3 gia tri lon nhat)"},
+    "result_title":     {"en": "Prediction Result",    "vi": "Ket Qua Du Doan"},
+    "malignant":        {"en": "Malignant",            "vi": "Ac Tinh"},
+    "benign":           {"en": "Benign",               "vi": "Lanh Tinh"},
+    "prob_caption":     {"en": "Malignancy probability","vi": "Xac suat ac tinh"},
+    "stat_classification": {"en": "Classification",    "vi": "Phan Loai"},
+    "stat_malignancy":  {"en": "Malignancy",           "vi": "Ac Tinh"},
+    "stat_benign":      {"en": "Benign",               "vi": "Lanh Tinh"},
+    "error_missing":    {"en": "Please fill in all {n} remaining fields.", "vi": "Vui long dien day du {n} truong con thieu."},
+    "error_missing_list": {"en": "Missing: {fields}",  "vi": "Con thieu: {fields}"},
+    "error_and_more":   {"en": " and {n} more...",     "vi": " va {n} truong khac..."},
+    "interpret_title":  {"en": "What Does This Mean?", "vi": "Ket Qua Nay Co Y Nghia Gi?"},
+    "interpret_benign": {
+        "en": "The model predicts the tumor is <strong>likely benign</strong> (non-cancerous). Benign tumors do not spread to other parts of the body and are generally not life-threatening. However, they should still be monitored.",
+        "vi": "Mo hinh du doan khoi u <strong>co kha nang lanh tinh</strong> (khong phai ung thu). Khoi u lanh tinh khong lan sang cac bo phan khac cua co the va nhin chung khong de doa tinh mang. Tuy nhien, van can theo doi thuong xuyen.",
+    },
+    "interpret_malignant": {
+        "en": "The model predicts an <strong>elevated risk of malignancy</strong> (cancerous). Malignant tumors can grow rapidly, invade nearby tissues, and potentially spread (metastasize) to other parts of the body.",
+        "vi": "Mo hinh du doan <strong>nguy co ac tinh cao</strong> (ung thu). Khoi u ac tinh co the phat trien nhanh, xam lan cac mo lan can va co kha nang di can sang cac bo phan khac cua co the.",
+    },
+    "next_steps_title": {"en": "Recommended Next Steps", "vi": "Cac Buoc Tiep Theo Khuyen Nghi"},
+    "next_steps_benign": {
+        "en": ["Continue regular breast screening as recommended by your doctor.",
+               "Schedule follow-up imaging (mammogram/ultrasound) to monitor changes.",
+               "Maintain a healthy lifestyle -- balanced diet, regular exercise, limited alcohol.",
+               "Report any new lumps, skin changes, or unusual discharge to your doctor promptly."],
+        "vi": ["Tiep tuc tam soat vu dinh ky theo khuyen nghi cua bac si.",
+               "Hen lich chup hinh anh theo doi (X-quang tuyen vu / sieu am) de theo doi thay doi.",
+               "Duy tri loi song lanh manh -- che do an can bang, tap the duc deu dan, han che ruou bia.",
+               "Bao ngay cho bac si neu phat hien khoi u moi, thay doi da, hoac tiet dich bat thuong."],
+    },
+    "next_steps_malignant": {
+        "en": ["Consult an oncologist (cancer specialist) as soon as possible for further evaluation.",
+               "Request a confirmatory biopsy -- core needle or excisional biopsy for definitive diagnosis.",
+               "Additional imaging (MRI, CT scan, PET scan) may be recommended to assess the extent.",
+               "Do not panic -- early detection significantly improves treatment outcomes and survival rates.",
+               "Discuss treatment options with your medical team (surgery, radiation, chemotherapy, etc.)."],
+        "vi": ["Tham kham bac si chuyen khoa ung buou cang som cang tot de danh gia them.",
+               "Yeu cau sinh thiet xac nhan -- sinh thiet loi kim hoac sinh thiet cat bo de chan doan chinh xac.",
+               "Co the can chup hinh anh bo sung (MRI, CT, PET) de danh gia muc do lan rong.",
+               "Dung hoang loan -- phat hien som giup cai thien dang ke ket qua dieu tri va ty le song sot.",
+               "Thao luan phuong an dieu tri voi doi ngu y te (phau thuat, xa tri, hoa tri, v.v.)."],
+    },
+    "glossary_title":    {"en": "Feature Glossary",     "vi": "Giai Thich Cac Chi So"},
+    "glossary_subtitle": {"en": "Detailed explanation of each measurement", "vi": "Giai thich chi tiet tung chi so"},
+    "glossary_how":      {"en": "How it's measured",    "vi": "Cach do"},
+    "glossary_why":      {"en": "Why it matters",       "vi": "Tai sao quan trong"},
+    "glossary_variants_text": {
+        "en": "**Mean** = average across all nuclei. **Std Error** = measurement uncertainty. **Worst** = mean of the three largest nuclei.",
+        "vi": "**Trung binh** = trung binh tren tat ca nhan te bao. **Sai so chuan** = do khong chac chan cua phep do. **Lon nhat** = trung binh cua ba nhan te bao lon nhat.",
+    },
+    "disclaimer": {
+        "en": "<strong>Disclaimer:</strong> This tool is for educational purposes only. It is not a substitute for professional medical diagnosis. Always consult a healthcare provider.",
+        "vi": "<strong>Luu y:</strong> Cong cu nay chi mang tinh giao duc. Day khong phai la thay the cho chan doan y khoa chuyen nghiep. Luon tham kham bac si.",
+    },
+    "theme_label":       {"en": "Theme",               "vi": "Giao Dien"},
+    "sample_title":      {"en": "Quick Fill",          "vi": "Dien Nhanh"},
+    "sample_benign":     {"en": "Benign Example",      "vi": "Vi du Lanh Tinh"},
+    "sample_malignant":  {"en": "Malignant Example",   "vi": "Vi du Ac Tinh"},
+    "progress_text":     {"en": "{n}/30 fields filled", "vi": "Da dien {n}/30 truong"},
+    "radar_title":       {"en": "Feature Profile Comparison", "vi": "So Sanh Ho So Chi So"},
+    "contribution_title":{"en": "Top Feature Contributions",  "vi": "Dong Gop Cua Cac Chi So Chinh"},
+    "contribution_mal":  {"en": "Toward Malignant",    "vi": "Huong Ac Tinh"},
+    "contribution_ben":  {"en": "Toward Benign",       "vi": "Huong Lanh Tinh"},
+    "patient":           {"en": "Patient",             "vi": "Benh Nhan"},
+    "avg_benign":        {"en": "Avg Benign",          "vi": "TB Lanh Tinh"},
+    "avg_malignant":     {"en": "Avg Malignant",       "vi": "TB Ac Tinh"},
+    "model_perf_title":  {"en": "Model Performance",   "vi": "Hieu Suat Mo Hinh"},
+    "model_perf_desc":   {"en": "Evaluated on the full Wisconsin dataset (569 samples)", "vi": "Danh gia tren toan bo du lieu Wisconsin (569 mau)"},
+    "confusion_matrix":  {"en": "Confusion Matrix",    "vi": "Ma Tran Nham Lan"},
+    "roc_curve":         {"en": "ROC Curve",           "vi": "Duong Cong ROC"},
+    "pdf_download":      {"en": "Download PDF Report", "vi": "Tai Bao Cao PDF"},
+    "pdf_generating":    {"en": "Generating report...", "vi": "Dang tao bao cao..."},
+    "actual":            {"en": "Actual",              "vi": "Thuc Te"},
+    "predicted":         {"en": "Predicted",           "vi": "Du Doan"},
+
+    # ── PDF report: Doctor's note & clinical sections ────────────────────────
+    "pdf_clinical_report":  {"en": "Clinical Prediction Report", "vi": "Bao Cao Du Doan Lam Sang"},
+    "pdf_patient_id":       {"en": "Patient ID",          "vi": "Ma Benh Nhan"},
+    "pdf_date":             {"en": "Report Date",          "vi": "Ngay Bao Cao"},
+    "pdf_method":           {"en": "Analysis Method",      "vi": "Phuong Phap Phan Tich"},
+    "pdf_method_desc":      {"en": "Fine Needle Aspirate (FNA) biopsy - 30 morphometric features analyzed by logistic regression model",
+                             "vi": "Sinh thiet choc hut kim nho (FNA) - 30 chi so hinh thai hoc duoc phan tich boi mo hinh hoi quy logistic"},
+    "pdf_summary_title":    {"en": "Clinical Summary",    "vi": "Tom Tat Lam Sang"},
+    "pdf_summary_benign": {
+        "en": "Based on the 30 morphometric features extracted from the fine needle aspirate biopsy, the prediction model indicates that the tumor characteristics are consistent with a benign (non-cancerous) mass. The cell nuclei exhibit relatively regular shapes, smooth boundaries, and size measurements within the expected range for benign breast tissue.",
+        "vi": "Dua tren 30 chi so hinh thai hoc trích xuat tu sinh thiet choc hut kim nho, mo hinh du doan cho thay cac dac diem khoi u phu hop voi khoi u lanh tinh (khong phai ung thu). Cac nhan te bao the hien hinh dang tuong doi deu dan, duong vien min va kich thuoc nam trong pham vi binh thuong cua mo vu lanh tinh.",
+    },
+    "pdf_summary_malignant": {
+        "en": "Based on the 30 morphometric features extracted from the fine needle aspirate biopsy, the prediction model indicates that the tumor characteristics show patterns associated with malignancy. Several cell nucleus measurements — particularly size, boundary irregularity, and concavity — are elevated compared to typical benign tissue, suggesting the need for immediate clinical follow-up.",
+        "vi": "Dua tren 30 chi so hinh thai hoc trich xuat tu sinh thiet choc hut kim nho, mo hinh du doan cho thay cac dac diem khoi u co nhung dau hieu lien quan den tinh ac tinh. Mot so chi so nhan te bao — dac biet la kich thuoc, do bat thuong duong vien va do lom — tang cao so voi mo lanh tinh thong thuong, cho thay can theo doi lam sang ngay lap tuc.",
+    },
+    "pdf_tumor_analysis":   {"en": "Tumor Characteristic Analysis", "vi": "Phan Tich Dac Diem Khoi U"},
+    "pdf_size_title":       {"en": "Size & Growth",       "vi": "Kich Thuoc & Phat Trien"},
+    "pdf_size_normal": {
+        "en": "The mean radius ({val:.2f}) and area ({area:.1f}) of the cell nuclei are within the normal range, suggesting controlled, non-aggressive cell growth. This is a reassuring finding.",
+        "vi": "Ban kinh trung binh ({val:.2f}) va dien tich ({area:.1f}) cua nhan te bao nam trong pham vi binh thuong, cho thay su phat trien te bao co kiem soat, khong tich cuc. Day la mot phat hien dang an tam.",
+    },
+    "pdf_size_elevated": {
+        "en": "The mean radius ({val:.2f}) and area ({area:.1f}) of the cell nuclei are notably larger than average, which may indicate accelerated or uncontrolled cell growth. Larger nuclei are commonly observed in malignant tissues.",
+        "vi": "Ban kinh trung binh ({val:.2f}) va dien tich ({area:.1f}) cua nhan te bao lon hon dang ke so voi trung binh, co the cho thay su phat trien te bao nhanh hoac mat kiem soat. Nhan lon thuong duoc quan sat thay o mo ac tinh.",
+    },
+    "pdf_shape_title":      {"en": "Shape & Regularity",  "vi": "Hinh Dang & Do Deu Dan"},
+    "pdf_shape_normal": {
+        "en": "The compactness ({compact:.4f}) and concavity ({concave:.4f}) values indicate relatively smooth, round cell boundaries. Regular nuclear shapes are typical of healthy or benign cells.",
+        "vi": "Gia tri do chat ({compact:.4f}) va do lom ({concave:.4f}) cho thay duong vien te bao tuong doi min va tron. Hinh dang nhan deu dan la dac trung cua te bao khoe manh hoac lanh tinh.",
+    },
+    "pdf_shape_irregular": {
+        "en": "The compactness ({compact:.4f}) and concavity ({concave:.4f}) values are elevated, indicating irregular, jagged cell boundaries with deep indentations. This boundary complexity is a hallmark of malignant cell nuclei.",
+        "vi": "Gia tri do chat ({compact:.4f}) va do lom ({concave:.4f}) tang cao, cho thay duong vien te bao khong deu, rang cua voi cac cho lom sau. Do phuc tap duong vien nay la dau hieu dac trung cua nhan te bao ac tinh.",
+    },
+    "pdf_texture_title":    {"en": "Texture & Symmetry",  "vi": "Ket Cau & Doi Xung"},
+    "pdf_texture_normal": {
+        "en": "The texture ({texture:.2f}) and symmetry ({symmetry:.4f}) measurements are within expected ranges, indicating uniform chromatin distribution and balanced nuclear structure.",
+        "vi": "Gia tri ket cau ({texture:.2f}) va doi xung ({symmetry:.4f}) nam trong pham vi binh thuong, cho thay su phan bo chromatin dong nhat va cau truc nhan can doi.",
+    },
+    "pdf_texture_abnormal": {
+        "en": "The texture ({texture:.2f}) and symmetry ({symmetry:.4f}) measurements are elevated. High texture indicates uneven chromatin patterns, and reduced symmetry suggests abnormal nuclear development — both associated with malignancy.",
+        "vi": "Gia tri ket cau ({texture:.2f}) va doi xung ({symmetry:.4f}) tang cao. Ket cau cao cho thay chromatin phan bo khong deu, va do doi xung giam cho thay su phat trien nhan bat thuong — ca hai deu lien quan den tinh ac tinh.",
+    },
+    "pdf_reassurance_title": {"en": "A Note for the Patient", "vi": "Loi Nhan Gui Benh Nhan"},
+    "pdf_reassurance_benign": {
+        "en": "We understand that waiting for test results can be an anxious time, and we want to reassure you that the findings from this analysis are encouraging. Your measurements suggest the tumor is most likely benign, which means it is non-cancerous and poses no immediate threat to your health.\n\nThat said, it is always important to stay proactive about your breast health. Please continue attending your scheduled screenings and follow up with your healthcare provider to confirm these findings. Early vigilance is the best form of prevention.\n\nRemember: you are not alone in this journey. Your medical team is here to support you every step of the way.",
+        "vi": "Chung toi hieu rang thoi gian cho ket qua xet nghiem co the la khoang thoi gian lo lang, va chung toi muon tran an ban rang ket qua tu phan tich nay rat kha quan. Cac chi so cua ban cho thay khoi u co kha nang cao la lanh tinh, co nghia la khong phai ung thu va khong de doa truc tiep den suc khoe cua ban.\n\nTuy nhien, dieu quan trong la luon chu dong cham soc suc khoe tuyen vu. Xin hay tiep tuc tham gia cac dot tam soat dinh ky va theo doi voi bac si de xac nhan ket qua nay. Canh giac som la cach phong ngua tot nhat.\n\nHay nho: ban khong co don trong hanh trinh nay. Doi ngu y te luon san sang ho tro ban tung buoc.",
+    },
+    "pdf_reassurance_malignant": {
+        "en": "We understand that receiving results that suggest a possible malignancy can feel overwhelming, and it is completely natural to experience a range of emotions — fear, confusion, or even disbelief. Please know that this prediction is a screening tool, not a final diagnosis.\n\nWhat this result means is that further investigation is recommended. Many patients who receive elevated risk predictions go on to receive confirmatory tests that lead to early treatment with excellent outcomes. Modern medicine has made tremendous progress in breast cancer treatment, and survival rates for early-detected breast cancer exceed 90%.\n\nPlease take this as an opportunity to act promptly — schedule a consultation with a specialist, bring this report, and discuss the appropriate next steps. Your courage in seeking answers is already a powerful first step.\n\nYou are stronger than you think, and your medical team will be with you through every stage.",
+        "vi": "Chung toi hieu rang viec nhan ket qua goi y kha nang ac tinh co the khien ban cam thay choang ngop, va hoan toan tu nhien khi ban trai qua nhieu cam xuc — lo so, hoang mang, hoac tham chi khong tin. Xin hay biet rang du doan nay la cong cu sang loc, khong phai chan doan cuoi cung.\n\nKet qua nay co nghia la can kiem tra them. Nhieu benh nhan nhan duoc du doan nguy co cao sau do lam cac xet nghiem xac nhan va duoc dieu tri som voi ket qua rat tot. Y hoc hien dai da co nhung buoc tien vuot bac trong dieu tri ung thu vu, va ty le song sot cho ung thu vu phat hien som vuot qua 90%.\n\nXin hay coi day la co hoi de hanh dong kip thoi — hen lich kham bac si chuyen khoa, mang theo bao cao nay va thao luan cac buoc tiep theo phu hop. Su dung cam cua ban trong viec tim kiem cau tra loi da la buoc dau tien manh me.\n\nBan manh me hon ban nghi, va doi ngu y te se dong hanh cung ban qua moi giai doan.",
+    },
+    "pdf_lifestyle_title":   {"en": "General Wellness Advice", "vi": "Loi Khuyen Suc Khoe Chung"},
+    "pdf_lifestyle": {
+        "en": [
+            "Nutrition — Maintain a balanced diet rich in fruits, vegetables, whole grains, and lean protein. Foods high in antioxidants (berries, leafy greens, nuts) may support overall cellular health.",
+            "Physical Activity — Engage in at least 150 minutes of moderate exercise per week. Regular physical activity has been shown to reduce breast cancer risk by up to 25%.",
+            "Alcohol & Tobacco — Limit alcohol intake to no more than one drink per day. Avoid tobacco entirely, as smoking is linked to increased cancer risk across multiple types.",
+            "Stress Management — Chronic stress can weaken the immune system. Practice relaxation techniques such as meditation, deep breathing, yoga, or spending time in nature.",
+            "Sleep — Aim for 7-9 hours of quality sleep per night. Adequate rest supports immune function and cellular repair.",
+            "Regular Check-ups — Attend all scheduled screenings (mammograms, clinical breast exams) and perform monthly self-examinations to detect changes early.",
+        ],
+        "vi": [
+            "Dinh duong — Duy tri che do an can bang giau trai cay, rau cu, ngu coc nguyen hat va protein nac. Thuc pham giau chat chong oxy hoa (qua mong, rau la xanh, cac loai hat) co the ho tro suc khoe te bao.",
+            "Van dong the chat — Tap the duc it nhat 150 phut moi tuan voi cuong do vua phai. Hoat dong the chat deu dan da duoc chung minh giam nguy co ung thu vu len den 25%.",
+            "Ruou & Thuoc la — Han che ruou bia khong qua mot ly moi ngay. Tranh hoan toan thuoc la, vi hut thuoc lien quan den tang nguy co ung thu nhieu loai.",
+            "Quan ly cang thang — Cang thang man tinh co the lam suy yeu he mien dich. Thuc hanh cac ky thuat thu gian nhu thien, ho hap sau, yoga, hoac danh thoi gian voi thien nhien.",
+            "Giac ngu — Ngu du 7-9 tieng moi dem voi chat luong tot. Nghi ngoi day du ho tro chuc nang mien dich va phuc hoi te bao.",
+            "Kham dinh ky — Tham gia tat ca cac dot tam soat theo lich (chup X-quang tuyen vu, kham lam sang) va tu kiem tra hang thang de phat hien thay doi som.",
+        ],
+    },
+    "pdf_model_note_title":  {"en": "About This Analysis",  "vi": "Ve Phan Tich Nay"},
+    "pdf_model_note": {
+        "en": "This report was generated by a logistic regression model trained on the Wisconsin Diagnostic Breast Cancer dataset (569 clinical samples, 30 features). The model achieves 98.6% accuracy on the training dataset with an AUC of 0.998. While these metrics indicate high reliability, this tool is designed to assist — not replace — clinical judgement. All findings should be confirmed by a qualified healthcare professional through appropriate diagnostic procedures.",
+        "vi": "Bao cao nay duoc tao boi mo hinh hoi quy logistic huan luyen tren bo du lieu Wisconsin Diagnostic Breast Cancer (569 mau lam sang, 30 chi so). Mo hinh dat do chinh xac 98.6% tren bo du lieu huan luyen voi AUC 0.998. Mac du cac chi so nay cho thay do tin cay cao, cong cu nay duoc thiet ke de ho tro — khong phai thay the — phan doan lam sang. Tat ca cac phat hien can duoc xac nhan boi chuyen gia y te co chuyen mon thong qua cac quy trinh chan doan phu hop.",
+    },
+}
+
+
+def t(key: str, lang: str, **kw) -> str:
+    """Retrieve a translated string, optionally formatted with keyword args."""
+    txt = LANG[key][lang]
+    return txt.format(**kw) if kw else txt
