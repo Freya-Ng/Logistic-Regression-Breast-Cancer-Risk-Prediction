@@ -6,7 +6,7 @@ import streamlit as st
 
 THEMES = {
     "light": dict(
-        bg="#fdf2f8", card="#ffffff", sidebar="#fdf2f8",
+        bg="#ede9fe", card="#ffffff", sidebar="#f5f3ff",
         text="#1e0a2e", text_sec="#6d28d9", text_muted="#71717a",
         border="#e9d5ff", input_border="#a78bfa", stat_bg="#f5f3ff",
         info_bg="#fdf4ff", info_border="#d8b4fe", info_text="#5b21b6",
