@@ -74,7 +74,7 @@ with st.sidebar:
     st.divider()
 
     # Feature inputs (3 sections x 10 features)
-    inputs: dict[str, float] = {}
+    inputs: dict[str, float | None] = {}
     for _sid, feat_list, sec_key, sec_desc_key in SECTIONS:
         with st.expander(f"**{t(sec_key, lang)}**  ({len(feat_list)})",
                          expanded=(_sid == "Mean")):
@@ -141,7 +141,7 @@ if predict_clicked:
             detail += t("error_and_more", lang, n=len(missing) - 6)
         st.error(f"**{msg}** {detail}")
     else:
-        values = [float(inputs[key]) for key in FEATURE_ORDER]
+        values = [float(v) for key in FEATURE_ORDER if (v := inputs[key]) is not None]
         p_benign = predict_prob(values)
         mal_pct = (1 - p_benign) * 100
         is_malignant = mal_pct >= 50
