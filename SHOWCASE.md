@@ -250,7 +250,7 @@ The app will open at `http://localhost:8501` in your default browser.
 
 ## 9. Future Roadmap
 
-- [ ] **Streamlit Cloud deployment** — Host the app publicly for instant access without local installation.
+- [x] **Streamlit Cloud deployment** — [Live app](https://logistic-regression-breast-cancer-risk-prediction.streamlit.app/) deployed on Streamlit Community Cloud.
 - [ ] **CSV batch upload** — Allow users to upload a CSV of multiple patients and receive bulk predictions with a summary dashboard.
 - [ ] **Prediction history** — Store session predictions with timestamps so users can compare multiple cases side by side.
 - [ ] **SHAP / LIME integration** — Add model-agnostic explainability beyond the current feature contribution chart.
@@ -275,7 +275,8 @@ This project was developed as part of the **AI Conquer** program, an initiative 
 
 ### Links
 
-- **Live Demo**: [https://blmppes.github.io/AICONQUER007/](https://blmppes.github.io/AICONQUER007/) *(original HTML version)*
+- **Live App (Streamlit)**: [logistic-regression-breast-cancer-risk-prediction.streamlit.app](https://logistic-regression-breast-cancer-risk-prediction.streamlit.app/)
+- **Live Demo (legacy HTML)**: [blmppes.github.io/AICONQUER007](https://blmppes.github.io/AICONQUER007/)
 - **Project Slides**: [ProjectSlide.pptx](docs/ProjectSlide.pptx)
 - **Blog (Vietnamese)**: [Logistic Regression from Scratch](https://aioconquer.aivietnam.edu.vn/posts/logistic-regression-from-scratch-hieu-gradient-thong-qua-ma-tran)
 - **Blog (English)**: [Understanding the Gradient Through Matrices](https://aioconquer.aivietnam.edu.vn/posts/logistic-regression-from-the-start-understanding-the-gradient-through-matrices)
