@@ -49,9 +49,14 @@ section[data-testid="stSidebar"] .stMarkdown span {{ color:{th["text"]}; }}
 .app-header h1 {{ color:{th["text"]};font-size:1.85rem;font-weight:700;margin:0 0 .35rem;letter-spacing:-.02em; }}
 .app-header p {{ color:{th["text_sec"]};font-size:.95rem;margin:0; }}
 section[data-testid="stSidebar"] .stNumberInput label p {{ font-size:.82rem!important;font-weight:500!important;color:{th["text"]}!important; }}
-section[data-testid="stSidebar"] .stNumberInput>div>div>input {{ border-radius:8px;border:1.5px solid {th["input_border"]};font-size:.85rem;padding:.45rem .6rem;background:{th["card"]};color:{th["text"]}; }}
+section[data-testid="stSidebar"] .stNumberInput>div>div>input {{ border-radius:8px;border:2px solid {th["input_border"]};font-size:.85rem;padding:.45rem .6rem;background:{th["card"]};color:{th["text"]};box-shadow:inset 0 1px 3px rgba(0,0,0,.15); }}
 section[data-testid="stSidebar"] .stNumberInput>div>div>input:focus {{ border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.2); }}
 section[data-testid="stSidebar"] hr {{ border-color:{th["border"]};margin:.75rem 0; }}
+section[data-testid="stSidebar"] details {{ background:{th["card"]};border:2px solid {th["border"]};border-radius:8px;margin-bottom:.5rem; }}
+section[data-testid="stSidebar"] details summary {{ padding:.5rem .75rem; }}
+section[data-testid="stSidebar"] details summary p,
+section[data-testid="stSidebar"] details summary span {{ color:{th["text"]}!important;font-weight:600!important; }}
+section[data-testid="stSidebar"] details summary svg {{ color:{th["text"]}!important;fill:{th["text"]}!important;stroke:{th["text"]}!important; }}
 .stButton>button[kind="primary"] {{ background:linear-gradient(135deg,#db2777,#7c3aed)!important;border:none!important;font-weight:600!important;font-size:.95rem!important;padding:.65rem 1.5rem!important;border-radius:10px!important;transition:transform .1s,box-shadow .15s; }}
 .stButton>button[kind="primary"]:hover {{ transform:translateY(-1px);box-shadow:0 4px 16px rgba(219,39,119,.45)!important; }}
 .result-panel {{ background:{th["card"]};border:1px solid {th["border"]};border-radius:16px;padding:2rem 2.5rem;text-align:center; }}
@@ -60,15 +65,15 @@ section[data-testid="stSidebar"] hr {{ border-color:{th["border"]};margin:.75rem
 .class-benign {{ color:#059669; }} .class-malignant {{ color:#dc2626; }}
 .prob-container {{ margin:1.5rem auto;max-width:380px; }}
 .prob-label-row {{ display:flex;justify-content:space-between;font-size:.75rem;color:{th["text_muted"]};font-weight:500;margin-bottom:6px; }}
-.prob-track {{ width:100%;height:12px;background:{th["border"]};border-radius:999px;overflow:hidden; }}
+.prob-track {{ width:100%;height:14px;background:{th["border"]};border-radius:999px;overflow:hidden;box-shadow:inset 0 1px 4px rgba(0,0,0,.2); }}
 .prob-fill {{ height:100%;border-radius:999px;transition:width .6s ease; }}
 .fill-benign {{ background:linear-gradient(90deg,#34d399,#059669); }}
 .fill-malignant {{ background:linear-gradient(90deg,#f87171,#dc2626); }}
 .prob-value {{ font-size:2.5rem;font-weight:700;margin:1rem 0 .25rem; }}
 .prob-value-benign {{ color:#059669; }} .prob-value-malignant {{ color:#dc2626; }}
 .prob-caption {{ font-size:.85rem;color:{th["text_sec"]}; }}
-.stat-box {{ background:{th["stat_bg"]};border:1px solid {th["border"]};border-radius:10px;padding:1rem 1.25rem;text-align:center; }}
-.stat-box .stat-label {{ font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:{th["text_muted"]};font-weight:600;margin-bottom:.3rem; }}
+.stat-box {{ background:{th["stat_bg"]};border:2px solid {th["border"]};border-radius:10px;padding:1rem 1.25rem;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.1); }}
+.stat-box .stat-label {{ font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:{th["text_muted"]};font-weight:700;margin-bottom:.3rem; }}
 .stat-box .stat-value {{ font-size:1.35rem;font-weight:700;color:{th["text"]}; }}
 .info-banner {{ background:{th["info_bg"]};border:1px solid {th["info_border"]};border-radius:10px;padding:1rem 1.25rem;display:flex;gap:.75rem;align-items:flex-start;margin-bottom:1.5rem; }}
 .info-banner .info-icon {{ flex-shrink:0;width:20px;height:20px;color:#7c3aed;margin-top:1px; }}
@@ -104,8 +109,8 @@ section[data-testid="stSidebar"] hr {{ border-color:{th["border"]};margin:.75rem
 .sidebar-header {{ padding-bottom:.25rem; }}
 .sidebar-header h3 {{ color:{th["text"]};font-size:1rem;font-weight:700;margin:0 0 .15rem; }}
 .sidebar-header p {{ color:{th["text_muted"]};font-size:.8rem;margin:0; }}
-.metric-card {{ background:{th["card"]};border:1px solid {th["border"]};border-radius:10px;padding:1rem;text-align:center; }}
-.metric-card .mc-label {{ font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:{th["text_muted"]};font-weight:600; }}
+.metric-card {{ background:{th["stat_bg"]};border:2px solid {th["border"]};border-radius:10px;padding:1rem;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.1); }}
+.metric-card .mc-label {{ font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:{th["text_muted"]};font-weight:700; }}
 .metric-card .mc-value {{ font-size:1.6rem;font-weight:700;color:{th["metric_accent"]};margin-top:.2rem; }}
 #MainMenu, footer, header {{ visibility:hidden; }}
 [data-testid="stMetric"] {{ display:none; }}
