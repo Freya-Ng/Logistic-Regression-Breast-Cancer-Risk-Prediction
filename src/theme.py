@@ -6,28 +6,30 @@ import streamlit as st
 
 THEMES = {
     "light": dict(
-        bg="#f0f4f8", card="#ffffff", sidebar="#ffffff",
-        text="#0f172a", text_sec="#64748b", text_muted="#94a3b8",
-        border="#e2e8f0", input_border="#e2e8f0", stat_bg="#f8fafc",
-        info_bg="#f0f9ff", info_border="#bae6fd", info_text="#0c4a6e",
-        waiting_icon_bg="#f0f9ff",
-        interpret_benign_bg="#ecfdf5", interpret_benign_border="#a7f3d0",
+        bg="#fdf2f8", card="#ffffff", sidebar="#fdf2f8",
+        text="#1e0a2e", text_sec="#6d28d9", text_muted="#71717a",
+        border="#e9d5ff", input_border="#a78bfa", stat_bg="#f5f3ff",
+        info_bg="#fdf4ff", info_border="#d8b4fe", info_text="#5b21b6",
+        waiting_icon_bg="#f5f3ff",
+        interpret_benign_bg="#ecfdf5", interpret_benign_border="#6ee7b7",
         interpret_benign_h="#065f46", interpret_benign_t="#064e3b",
-        interpret_mal_bg="#fef2f2", interpret_mal_border="#fecaca",
+        interpret_mal_bg="#fef2f2", interpret_mal_border="#fca5a5",
         interpret_mal_h="#991b1b", interpret_mal_t="#7f1d1d",
-        glossary_label="#6366f1", glossary_text="#475569",
+        glossary_label="#7c3aed", glossary_text="#4b5563",
+        metric_accent="#9333ea",
     ),
     "dark": dict(
-        bg="#0f172a", card="#1e293b", sidebar="#1e293b",
-        text="#f1f5f9", text_sec="#94a3b8", text_muted="#64748b",
-        border="#334155", input_border="#475569", stat_bg="#0f172a",
-        info_bg="rgba(14,165,233,0.08)", info_border="#0c4a6e", info_text="#7dd3fc",
-        waiting_icon_bg="#1e293b",
-        interpret_benign_bg="rgba(5,150,105,0.1)", interpret_benign_border="#065f46",
-        interpret_benign_h="#34d399", interpret_benign_t="#6ee7b7",
-        interpret_mal_bg="rgba(220,38,38,0.1)", interpret_mal_border="#991b1b",
+        bg="#0a0414", card="#150828", sidebar="#150828",
+        text="#f5f3ff", text_sec="#ddd6fe", text_muted="#a78bfa",
+        border="#3b1573", input_border="#5b21b6", stat_bg="#1e0d3a",
+        info_bg="rgba(124,58,237,0.12)", info_border="#4c1d95", info_text="#c4b5fd",
+        waiting_icon_bg="#150828",
+        interpret_benign_bg="rgba(5,150,105,0.15)", interpret_benign_border="#059669",
+        interpret_benign_h="#34d399", interpret_benign_t="#a7f3d0",
+        interpret_mal_bg="rgba(220,38,38,0.15)", interpret_mal_border="#dc2626",
         interpret_mal_h="#f87171", interpret_mal_t="#fca5a5",
-        glossary_label="#818cf8", glossary_text="#94a3b8",
+        glossary_label="#c084fc", glossary_text="#ddd6fe",
+        metric_accent="#c084fc",
     ),
 }
 
@@ -42,16 +44,16 @@ section[data-testid="stSidebar"] {{ background:{th["sidebar"]}; border-right:1px
 section[data-testid="stSidebar"] .stMarkdown p,
 section[data-testid="stSidebar"] .stMarkdown span {{ color:{th["text"]}; }}
 .app-header {{ text-align:center; padding:2.5rem 1rem 1rem; }}
-.app-header .icon {{ display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;background:linear-gradient(135deg,#0ea5e9,#6366f1);border-radius:16px;margin-bottom:1rem; }}
+.app-header .icon {{ display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;background:linear-gradient(135deg,#ec4899,#7c3aed);border-radius:16px;margin-bottom:1rem; }}
 .app-header .icon svg {{ width:32px;height:32px;fill:#fff; }}
 .app-header h1 {{ color:{th["text"]};font-size:1.85rem;font-weight:700;margin:0 0 .35rem;letter-spacing:-.02em; }}
 .app-header p {{ color:{th["text_sec"]};font-size:.95rem;margin:0; }}
 section[data-testid="stSidebar"] .stNumberInput label p {{ font-size:.82rem!important;font-weight:500!important;color:{th["text"]}!important; }}
 section[data-testid="stSidebar"] .stNumberInput>div>div>input {{ border-radius:8px;border:1.5px solid {th["input_border"]};font-size:.85rem;padding:.45rem .6rem;background:{th["card"]};color:{th["text"]}; }}
-section[data-testid="stSidebar"] .stNumberInput>div>div>input:focus {{ border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.1); }}
+section[data-testid="stSidebar"] .stNumberInput>div>div>input:focus {{ border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.2); }}
 section[data-testid="stSidebar"] hr {{ border-color:{th["border"]};margin:.75rem 0; }}
-.stButton>button[kind="primary"] {{ background:linear-gradient(135deg,#6366f1,#0ea5e9)!important;border:none!important;font-weight:600!important;font-size:.95rem!important;padding:.65rem 1.5rem!important;border-radius:10px!important;transition:transform .1s,box-shadow .15s; }}
-.stButton>button[kind="primary"]:hover {{ transform:translateY(-1px);box-shadow:0 4px 14px rgba(99,102,241,.35)!important; }}
+.stButton>button[kind="primary"] {{ background:linear-gradient(135deg,#db2777,#7c3aed)!important;border:none!important;font-weight:600!important;font-size:.95rem!important;padding:.65rem 1.5rem!important;border-radius:10px!important;transition:transform .1s,box-shadow .15s; }}
+.stButton>button[kind="primary"]:hover {{ transform:translateY(-1px);box-shadow:0 4px 16px rgba(219,39,119,.45)!important; }}
 .result-panel {{ background:{th["card"]};border:1px solid {th["border"]};border-radius:16px;padding:2rem 2.5rem;text-align:center; }}
 .result-label {{ font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:{th["text_muted"]};margin-bottom:.5rem; }}
 .result-class {{ font-size:2rem;font-weight:700;margin:.25rem 0 1.25rem; }}
@@ -69,7 +71,7 @@ section[data-testid="stSidebar"] hr {{ border-color:{th["border"]};margin:.75rem
 .stat-box .stat-label {{ font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:{th["text_muted"]};font-weight:600;margin-bottom:.3rem; }}
 .stat-box .stat-value {{ font-size:1.35rem;font-weight:700;color:{th["text"]}; }}
 .info-banner {{ background:{th["info_bg"]};border:1px solid {th["info_border"]};border-radius:10px;padding:1rem 1.25rem;display:flex;gap:.75rem;align-items:flex-start;margin-bottom:1.5rem; }}
-.info-banner .info-icon {{ flex-shrink:0;width:20px;height:20px;color:#0284c7;margin-top:1px; }}
+.info-banner .info-icon {{ flex-shrink:0;width:20px;height:20px;color:#7c3aed;margin-top:1px; }}
 .info-banner p {{ color:{th["info_text"]};font-size:.85rem;line-height:1.5;margin:0; }}
 .interpret-card {{ border-radius:12px;padding:1.5rem 1.75rem;margin-top:1.25rem;line-height:1.6; }}
 .interpret-benign {{ background:{th["interpret_benign_bg"]};border:1px solid {th["interpret_benign_border"]}; }}
@@ -85,13 +87,13 @@ section[data-testid="stSidebar"] hr {{ border-color:{th["border"]};margin:.75rem
 .waiting-state h3 {{ color:{th["text"]};font-size:1.1rem;font-weight:600;margin:0 0 .4rem; }}
 .waiting-state p {{ color:{th["text_muted"]};font-size:.88rem;margin:0; }}
 .dna-wave {{ display:flex;justify-content:center;gap:6px;margin-bottom:1.5rem; }}
-.dna-dot {{ width:10px;height:10px;border-radius:50%;background:#6366f1;animation:dna-bounce 1.4s ease-in-out infinite; }}
+.dna-dot {{ width:10px;height:10px;border-radius:50%;background:#db2777;animation:dna-bounce 1.4s ease-in-out infinite; }}
 .dna-dot:nth-child(2){{animation-delay:.15s}} .dna-dot:nth-child(3){{animation-delay:.3s}}
 .dna-dot:nth-child(4){{animation-delay:.45s}} .dna-dot:nth-child(5){{animation-delay:.6s}}
 .dna-dot:nth-child(6){{animation-delay:.75s}} .dna-dot:nth-child(7){{animation-delay:.9s}}
 @keyframes dna-bounce {{
   0%,100% {{ transform:translateY(0);opacity:.3; }}
-  50% {{ transform:translateY(-22px);opacity:1;background:#0ea5e9; }}
+  50% {{ transform:translateY(-22px);opacity:1;background:#7c3aed; }}
 }}
 .glossary-item {{ background:{th["card"]};border:1px solid {th["border"]};border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:.75rem; }}
 .glossary-item h5 {{ color:{th["text"]};font-size:.95rem;font-weight:700;margin:0 0 .4rem; }}
@@ -104,7 +106,7 @@ section[data-testid="stSidebar"] hr {{ border-color:{th["border"]};margin:.75rem
 .sidebar-header p {{ color:{th["text_muted"]};font-size:.8rem;margin:0; }}
 .metric-card {{ background:{th["card"]};border:1px solid {th["border"]};border-radius:10px;padding:1rem;text-align:center; }}
 .metric-card .mc-label {{ font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:{th["text_muted"]};font-weight:600; }}
-.metric-card .mc-value {{ font-size:1.6rem;font-weight:700;color:#6366f1;margin-top:.2rem; }}
+.metric-card .mc-value {{ font-size:1.6rem;font-weight:700;color:{th["metric_accent"]};margin-top:.2rem; }}
 #MainMenu, footer, header {{ visibility:hidden; }}
 [data-testid="stMetric"] {{ display:none; }}
 </style>""", unsafe_allow_html=True)
