@@ -4,6 +4,8 @@ A machine learning web application that predicts breast cancer risk from tumor c
 
 Part of the **AI Conquer** program by **AI Vietnam**.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://logistic-regression-breast-cancer-risk-prediction.streamlit.app/)
+
 ---
 
 ## Quick Start
@@ -96,7 +98,8 @@ Trained from scratch using gradient descent — no `sklearn.LogisticRegression`.
 ## Links
 
 - **Detailed Showcase**: [SHOWCASE.md](SHOWCASE.md)
-- **Live Demo (legacy)**: [blmppes.github.io/AICONQUER007](https://blmppes.github.io/AICONQUER007/)
+- **Live App**: [logistic-regression-breast-cancer-risk-prediction.streamlit.app](https://logistic-regression-breast-cancer-risk-prediction.streamlit.app/)
+- **Live Demo (legacy HTML)**: [blmppes.github.io/AICONQUER007](https://blmppes.github.io/AICONQUER007/)
 - **Blog (VN)**: [Logistic Regression from Scratch](https://aioconquer.aivietnam.edu.vn/posts/logistic-regression-from-scratch-hieu-gradient-thong-qua-ma-tran)
 - **Blog (EN)**: [Understanding the Gradient Through Matrices](https://aioconquer.aivietnam.edu.vn/posts/logistic-regression-from-the-start-understanding-the-gradient-through-matrices)
 
