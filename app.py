@@ -62,12 +62,12 @@ with st.sidebar:
     st.caption(t("sample_title", lang))
     sc1, sc2 = st.columns(2)
     with sc1:
-        if st.button(t("sample_benign", lang), use_container_width=True):
+        if st.button(t("sample_benign", lang), width='stretch'):
             for key, val in zip(FEATURE_ORDER, SAMPLE_BENIGN):
                 st.session_state[key] = val
             st.rerun()
     with sc2:
-        if st.button(t("sample_malignant", lang), use_container_width=True):
+        if st.button(t("sample_malignant", lang), width='stretch'):
             for key, val in zip(FEATURE_ORDER, SAMPLE_MALIGNANT):
                 st.session_state[key] = val
             st.rerun()
@@ -95,7 +95,7 @@ with st.sidebar:
 
     st.divider()
     predict_clicked = st.button(
-        t("btn_predict", lang), use_container_width=True, type="primary",
+        t("btn_predict", lang), width='stretch', type="primary",
     )
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -192,11 +192,11 @@ if predict_clicked:
                 np.array(values), metrics["benign_avg"],
                 metrics["malignant_avg"], lang, th,
             )
-            st.plotly_chart(fig_radar, use_container_width=True)
+            st.plotly_chart(fig_radar, width='stretch')
         with ch2:
             st.subheader(t("contribution_title", lang))
             fig_contrib = make_contribution(values, lang, th)
-            st.plotly_chart(fig_contrib, use_container_width=True)
+            st.plotly_chart(fig_contrib, width='stretch')
 
         # Interpretation
         ikey = "interpret_malignant" if is_malignant else "interpret_benign"
@@ -217,7 +217,7 @@ if predict_clicked:
             data=pdf_bytes,
             file_name="breast_cancer_prediction_report.pdf",
             mime="application/pdf",
-            use_container_width=True,
+            width='stretch',
         )
 
 else:
@@ -261,12 +261,12 @@ with st.expander(
     with cm1:
         st.subheader(t("confusion_matrix", lang))
         st.plotly_chart(make_confusion(metrics["cm"], lang, th),
-                        use_container_width=True)
+                        width='stretch')
     with cm2:
         st.subheader(t("roc_curve", lang))
         st.plotly_chart(
             make_roc(metrics["fpr"], metrics["tpr"], metrics["roc_auc"], th),
-            use_container_width=True,
+            width='stretch',
         )
 
 # ═════════════════════════════════════════════════════════════════════════════
